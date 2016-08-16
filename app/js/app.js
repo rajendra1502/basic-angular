@@ -7,4 +7,8 @@ app.config(function($routeProvider){
                when("/user/:id", {templateUrl : "partials/userDetails.html", controller: "userController"}).
                when("/create/", {templateUrl : "partials/create.html"}).
                otherwise({redirectTo : '/users.html'});
- });       
+    }).run(function ($rootScope, $location, $http) {
+            console.log('Auth Token :: ' + sessionStorage.getItem("auth_token"));
+            $rootScope.allowedURLtoPass = false;
+            
+});       
