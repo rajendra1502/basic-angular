@@ -1,8 +1,8 @@
 <div class="login-block" ng-controller="userAuthController">
     <form name="login" ng-submit="sendForm($event)">
     <h1>Login</h1>
-    <input type="text" value="" placeholder="Username" id="username" name="name" ng-model="auth.name" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required/>
-    <div class="alert alert-danger">required</div>
+    <input type="text" value="" placeholder="Username" id="username" name="name" ng-model="auth.name" />
+    <div class="alert alert-danger" ng-show="(login.name.$dirty || submitted) && login.name.$error.required">required</div>
     <input type="password" value="" placeholder="Password" id="password" name="password" ng-model="auth.password"/>
     <button type="submit" ng-disabled="(login.$submitted && login.$invalid)">Submit</button>
     </form>
