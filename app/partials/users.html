@@ -1,0 +1,21 @@
+<a href="./#/create"><- Create New User</a></br>
+<input type="text" ng-model="nameFilter" placeholder="Search..."/>
+<span ng-if="success">{{success.msg}}</span>
+<table class="table">
+<thead>
+  <tr><th colspan="4">Users List</th></tr>
+</thead>
+<tbody>
+  <tr ng-repeat="user in usersList | filter: searchFilter">
+    <td>{{$index + 1}}</td>
+    <td>
+      <a href="#/user/{{user.id}}">
+	  	{{user.name}}&nbsp;{{user.email}}
+	  </a>
+	</td>
+    <td>{{user.state}}</td>
+    <td>{{user.city}}</td>
+    <td><a href="#/user/{{user.id}}"> View</a> || <p style="cursor: pointer" ng-click="deleteUser()"> Delete</p></td>
+  </tr>
+</tbody>
+</table>
